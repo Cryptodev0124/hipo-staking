@@ -337,7 +337,6 @@ export class Model {
     get isButtonEnabled() {
         const isAmountValid = this.isAmountValid
         const isAmountPositive = this.isAmountPositive
-        console.log("isAmountPositive", isAmountPositive)
         const tonBalance = this.tonBalance
         const htonBalance = this.walletState?.tokens
         const haveBalance = this.isStakeTabActive ? tonBalance != null : htonBalance != null
@@ -853,7 +852,8 @@ export class Model {
             const message = this.isStakeTabActive
                 ? createDepositMessage(this.treasury.address, this.amountInNano, this.referrer)
                 : createUnstakeMessage(this.wallet.address, this.amountInNano)
-
+            console.log("message", message)
+            console.log("address", this.treasury.address.toString(), this.wallet.address.toString())
             const tx: SendTransactionRequest = {
                 validUntil: Math.floor(Date.now() / 1000) + txValidUntil,
                 network: this.isMainnet ? CHAIN.MAINNET : CHAIN.TESTNET,
@@ -861,6 +861,7 @@ export class Model {
                 messages: [message],
             }
             const tonBalance = this.tonBalance
+            console.log("tonBalance", tonBalance)
             void this.tonConnectUI
                 .sendTransaction(tx)
                 .then(() => {
