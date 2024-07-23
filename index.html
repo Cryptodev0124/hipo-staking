@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Start earning passive income with as little as 1 TON by staking your Toncoins on Hipo liquid
+                staking platform, built on TON blockchain."
+        />
+        <title>Hipo App - Decentralized Liquid Staking on TON</title>
+        <link rel="icon" type="image/x-icon" href="src/assets/favicon.ico" />
+        <script>
+            if (
+                localStorage.theme === 'dark' ||
+                (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="root" class="flex min-h-screen min-w-[360px] flex-col">
+            <div style="display: none" class="loading m-auto hidden flex-col text-center">
+                <img src="src/assets/logo.svg" class="h-32 dark:hidden" />
+                <img src="src/assets/logo-dark.svg" class="hidden h-32 dark:block" />
+                <p class="font-bold text-brown dark:text-dark-50">Loading</p>
+            </div>
+        </div>
+        <script type="module" src="src/main.tsx"></script>
+    </body>
+</html>
